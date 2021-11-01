@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color picker</title>
+    <style>
+        body{
+            font-family: cursive;
+        }
+        h1,p{
+            text-align: center;
+            margin-top:50px;
+        }
+        .picker{
+            width:300px;
+            height:auto;
+            margin-left:auto;
+            margin-right: auto;
+            margin-top: 100px;
+            display: flex;
+            padding:10px;
+        }
+        .picker label,button{
+            margin-left:30px;
+        }
+        
+        .picker button{
+            background-color: black ;
+            color:white;
+            border-radius: 10px;
+            padding:5px;
+        }
+    </style>
+</head>
+<body id="body">
+    <h1 id="title">Color picker</h1>
+    <p id="p">Choose any color and see the change!</p>
+    <div class="picker">
+        <label for="color" id="label">Color</label>
+        <input type="color" id="color">
+        <button id="change" onclick="changeColor();">Change Color</button>
+    </div>
+    <script>
+        function changeColor(){
+            let clr=document.getElementById("color");
+            document.body.style.backgroundColor=clr.value;
+            if(clr.value.includes("00") || clr.value.includes("0a") || clr.value.includes("0b") || clr.value.includes("0c") || clr.value.includes("0d") || clr.value.includes("0e") || clr.value.includes("0f")){
+                document.getElementById("title").style.color="#eee";
+                document.getElementById("p").style.color="#eee";
+                document.getElementById("label").style.color="#eee";
+            }    
+            else{
+                document.getElementById("title").style.color="#111";
+                document.getElementById("p").style.color="#111";
+                document.getElementById("label").style.color="#111"; 
+            } 
+        }
+    </script>
+</body>
+</html>
